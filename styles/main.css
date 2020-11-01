@@ -799,7 +799,7 @@ table {
 .main-heading {
   width: 100%;
   height: 100vh;
-  background: #ffffff;
+  background-color: #ffffff;
   color: #000;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -822,7 +822,6 @@ table {
 .main-heading .header-content {
   width: 80%;
   max-width: 80%;
-  background: pink;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -845,11 +844,25 @@ table {
   .main-heading .header-content {
     width: 100%;
     max-width: 100%;
+    position: relative;
+  }
+  .main-heading .header-content::after {
+    content: '';
+    background: url("../../assets/Vorderrhein.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.3;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
   }
 }
 
 .main-heading .header-content .left-box {
-  background: #ffd5d5;
   height: 100%;
   max-height: 100vh;
   max-width: 38vw;
@@ -894,7 +907,6 @@ table {
 .main-heading .header-content .left-box .user-description {
   position: relative;
   top: 40%;
-  background: #dcdcff;
   max-height: 45vh;
 }
 
@@ -927,7 +939,6 @@ table {
 }
 
 .main-heading .header-content .left-box .user-description .short-des {
-  background: red;
   margin-top: 5%;
   width: 80%;
   font-size: 1.1vw;
@@ -945,7 +956,7 @@ table {
 
 .main-heading .header-content .left-box .user-description .viewMyWork {
   margin-top: 2vh;
-  width: 45%;
+  width: 40%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -966,18 +977,19 @@ table {
   font-weight: bold;
   font-family: 'HelveticaNowDisplay-ExtraBold';
   color: #0a0909;
-  font-size: 1.2vw;
+  font-size: 1vw;
   position: relative;
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.3);
 }
 
 .main-heading .header-content .left-box .user-description .viewMyWork a::after {
   content: '';
   display: inline-block;
   width: 100%;
-  height: 0.5vh;
+  height: 0.3vh;
   background: #303030;
   position: absolute;
-  bottom: -1.5vh;
+  bottom: -1vh;
   left: 0;
   opacity: 0;
   -webkit-transition: all 0.3s ease;
@@ -988,10 +1000,14 @@ table {
   opacity: 1;
 }
 
+.main-heading .header-content .left-box .user-description .viewMyWork a:hover {
+  border: none;
+}
+
 .main-heading .header-content .left-box .user-description .viewMyWork span {
   position: relative;
   left: 2%;
-  font-size: 1.2vw;
+  font-size: 1.2rem;
   opacity: 0.4;
 }
 
@@ -1008,18 +1024,46 @@ table {
 
 @media screen and (max-width: 1200px) {
   .main-heading .header-content .left-box .user-description .viewMyWork {
-    width: 30%;
-    background: cornflowerblue;
+    width: 16rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main-heading .header-content .left-box .user-description .viewMyWork {
+    width: 14rem;
+  }
+  .main-heading .header-content .left-box .user-description .viewMyWork a {
+    font-size: 1rem;
+  }
+  .main-heading .header-content .left-box .user-description .viewMyWork a::after {
+    height: 2px;
+    bottom: -0.6vh;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .main-heading .header-content .left-box .user-description .viewMyWork {
+    width: 10rem;
+  }
+  .main-heading .header-content .left-box .user-description .viewMyWork a {
+    font-size: 0.7rem;
+  }
+  .main-heading .header-content .left-box .user-description .viewMyWork a::after {
+    height: 2px;
+    bottom: -0.4vh;
+  }
+  .main-heading .header-content .left-box .user-description .viewMyWork span {
+    font-size: 0.6rem;
   }
 }
 
 .main-heading .header-content .left-box .user-description .share-button {
   position: relative;
   margin-top: 5%;
-  width: 15%;
-  height: 12%;
+  width: 8rem;
+  height: 3rem;
   background: #dfe6e9;
-  border-radius: 0.2vw;
+  border-radius: 0.2rem;
   overflow: hidden;
   padding-top: 0.4vh;
   display: -webkit-box;
@@ -1054,7 +1098,7 @@ table {
   background: #2f2e41;
   color: #f1f1f1;
   text-align: center;
-  font-size: 0.8vw;
+  font-size: 1rem;
   line-height: 15%;
   z-index: 999;
   -webkit-transition: 0.6s linear;
@@ -1073,6 +1117,12 @@ table {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .main-heading .header-content .left-box .user-description .share-button span {
+    font-size: 1rem;
+  }
 }
 
 .main-heading .header-content .left-box .user-description .share-button:hover span {
@@ -1123,17 +1173,65 @@ table {
           transition-delay: 0.8s;
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1600px) {
   .main-heading .header-content .left-box .user-description .share-button {
-    border-radius: 0.5vw !important;
-    font-size: 1.7rem !important;
+    font-size: 1.4rem !important;
+    padding: 5px 0;
+    border-radius: 5px !important;
+  }
+  .main-heading .header-content .left-box .user-description .share-button .github {
+    width: 2rem;
+  }
+  .main-heading .header-content .left-box .user-description .share-button .mail {
+    width: 1.4rem;
   }
 }
 
 @media screen and (max-width: 1200px) {
   .main-heading .header-content .left-box .user-description .share-button {
     width: 8rem !important;
-    height: 5rem !important;
+    height: 3.5rem !important;
+    min-height: 3.5rem !important;
+    border-radius: 5px !important;
+  }
+  .main-heading .header-content .left-box .user-description .share-button .github {
+    width: 2.2rem;
+  }
+  .main-heading .header-content .left-box .user-description .share-button .mail {
+    width: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main-heading .header-content .left-box .user-description .share-button {
+    width: 6rem !important;
+    height: 3rem !important;
+    min-height: 3rem !important;
+    margin-top: 20px;
+  }
+  .main-heading .header-content .left-box .user-description .share-button .github {
+    width: 2rem;
+  }
+  .main-heading .header-content .left-box .user-description .share-button .mail {
+    width: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .main-heading .header-content .left-box .user-description .share-button {
+    width: 5rem !important;
+    height: 2.5rem !important;
+    min-height: 2.5rem !important;
+    margin-top: 15px;
+  }
+  .main-heading .header-content .left-box .user-description .share-button span {
+    font-size: 0.8rem;
+  }
+  .main-heading .header-content .left-box .user-description .share-button .github {
+    width: 1.6rem;
+  }
+  .main-heading .header-content .left-box .user-description .share-button .mail {
+    width: 1rem;
   }
 }
 
@@ -1177,6 +1275,83 @@ table {
   }
 }
 
+@media screen and (max-width: 800px) {
+  .main-heading .header-content .left-box {
+    max-width: 40rem;
+  }
+  .main-heading .header-content .left-box .user-description > p:nth-of-type(2) {
+    font-size: 4rem !important;
+    line-height: 4rem !important;
+  }
+  .main-heading .header-content .left-box .user-description .short-des {
+    font-size: 1rem;
+    opacity: 0.8;
+    line-height: 1.4rem;
+  }
+  .main-heading .header-content .left-box .user-description > p:nth-of-type(1) {
+    font-size: 1rem;
+    line-height: 1rem;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .main-heading .header-content .left-box {
+    max-width: 40rem;
+  }
+  .main-heading .header-content .left-box .user-description > p:nth-of-type(2) {
+    font-size: 3.5rem !important;
+    line-height: 3.5rem !important;
+  }
+  .main-heading .header-content .left-box .user-description .short-des {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    line-height: 1.5rem;
+  }
+  .main-heading .header-content .left-box .user-description > p:nth-of-type(1) {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main-heading .header-content .left-box {
+    max-width: 40rem;
+  }
+  .main-heading .header-content .left-box .user-description > p:nth-of-type(2) {
+    font-size: 3 !important;
+    line-height: 3.5rem !important;
+  }
+  .main-heading .header-content .left-box .user-description .short-des {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    line-height: 1.3rem;
+    margin-top: 30px;
+    width: 100%;
+  }
+  .main-heading .header-content .left-box .user-description > p:nth-of-type(1) {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .main-heading .header-content .left-box {
+    max-width: 40rem;
+  }
+  .main-heading .header-content .left-box .user-description > p:nth-of-type(2) {
+    font-size: 2.5rem !important;
+    line-height: 2.8rem !important;
+  }
+  .main-heading .header-content .left-box .user-description .short-des {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    line-height: 1rem;
+    margin-top: 20px;
+  }
+  .main-heading .header-content .left-box .user-description > p:nth-of-type(1) {
+    font-size: 0.8rem;
+    opacity: 1;
+  }
+}
+
 .main-heading .header-content .header-svg {
   height: 100vh;
   width: 60%;
@@ -1217,8 +1392,6 @@ table {
     position: absolute;
     top: 0;
     left: 0;
-    -webkit-box-shadow: inset 10em 0 10em white, inset -10em 0 10em white;
-            box-shadow: inset 10em 0 10em white, inset -10em 0 10em white;
   }
 }
 
@@ -1296,8 +1469,38 @@ table {
 }
 
 @media screen and (max-width: 1300px) {
+  .main-heading #home-page-project-link {
+    width: 1.2rem;
+    border-radius: 1rem;
+    height: 1.8rem;
+    border: 2px solid black;
+  }
   .main-heading #home-page-project-link::after {
-    top: -120%;
+    top: -80%;
+    left: -50%;
+    font-size: 0.3rem;
+  }
+  .main-heading #home-page-project-link span {
+    width: 3px;
+    height: 6px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .main-heading #home-page-project-link {
+    width: 1rem;
+    border-radius: 1rem;
+    height: 1.5rem;
+    border: 2px solid black;
+  }
+  .main-heading #home-page-project-link::after {
+    top: -100%;
+    left: -80%;
+    font-size: 0.3rem;
+  }
+  .main-heading #home-page-project-link span {
+    width: 3px;
+    height: 5px;
   }
 }
 

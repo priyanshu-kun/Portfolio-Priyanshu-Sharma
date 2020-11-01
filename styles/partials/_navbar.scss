@@ -1,0 +1,519 @@
+.navbar {
+    width: 100%;
+    // max-width: 1660px;
+    height: 10vh;
+    // margin: 0 auto;
+    // background: black;
+    @include flex(row, space-between, center);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 80px 60px 40px 60px;
+    z-index: 999999;
+
+
+
+    & .logo {
+        position: relative;
+        z-index: 99999;
+        @include flex(row, space-between, center);
+        // background: blue;
+
+        & div:first-child {
+            margin-right: 10px;
+            background: $accent-color;
+            width: 50px;
+            height: 50px;
+            @include flex(row, center, center);
+            border-radius: 100%;
+            position: relative;
+            bottom: 3px;
+            // background: blue;
+            // outline: none;
+            // box-shadow: 0 0 0 6px $accent-color;
+
+            & img {
+                border-radius: 100%;
+                // filter: grayscale(100);
+                box-shadow: 0 0 0 4px $accent-color;
+            }
+        }
+
+        & div:last-child {
+            @include flex(column, center, center);
+            margin-left: 5px;
+            // 
+            & h1:first-child {
+                font-size: 1.5rem;
+                font-family: "BebasNeue-Regular";
+                letter-spacing: 2px;
+                color: $text-color;
+            }
+
+            & small:last-child {
+                font-size: 0.8rem;
+                opacity: $opacity ;
+                font-weight: bold;
+                // letter-spacing: 1px;
+                color: $text-color;
+                position: relative;
+                bottom: 3px;
+            }
+        }
+
+    }
+
+    & .hamburger-menu {
+        // background: purple;
+        @include flex(row, space-between, center);
+        position: relative;
+        z-index: 99999;
+
+        & .menu-btn {
+            height: 45px;
+            width: 45px;
+            // background: hotpink;
+            // border-radius: 10px;
+            margin-left: 10px;
+            @include flex(column, center, flex-start);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+
+
+            & .menu-btn__burger {
+                width: 30px;
+                height: 4px;
+                // background: rgb(114, 114, 114);
+                background: $accent-color;
+                border-radius: 3px;
+                // float: right;
+                @include transition(0.3s, ease);
+                // transform: rotate(-180deg);
+
+            }
+
+            & .menu-btn__burger::before,
+            & .menu-btn__burger::after {
+                content: "";
+                position: absolute;
+                width: 40px;
+                height: 4px;
+                // background: black;
+                background: $accent-color;
+                border-radius: 3px;
+                @include transition(0.3s, ease);
+
+            }
+
+            &.open .menu-btn__burger {
+                transform: translateX(-50px);
+                background: transparent;
+            }
+
+
+            & .menu-btn__burger::before {
+                transform: translateY(-12px);
+            }
+
+            & .menu-btn__burger::after {
+                transform: translateY(12px);
+            }
+
+
+
+            &.open .menu-btn__burger::before {
+                transform: rotate(45deg) translate(35px, -35px);
+            }
+
+            &.open .menu-btn__burger::after {
+                transform: rotate(-45deg) translate(35px, 35px);
+            }
+        }
+
+        & div:first-child {
+            font-size: 1rem;
+            font-weight: bold;
+            color: $text-color;
+        }
+
+    }
+
+    & .overlay-and-navitems {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        @include flex(column, center, center);
+        background: $overlay-color;
+        top: 0;
+        left: 0;
+        transform: translateY(100%);
+        @include transition(0.3s, ease);
+
+
+
+        & .nav-items {
+            @include flex(column, center, center);
+
+            // background: red;
+
+            & li {
+                list-style: none;
+                transform: translateX(1200px);
+                opacity: 0;
+                @include transition(0.6s, cubic-bezier(0.26, -0.7, 0, 1.89));
+            }
+
+
+            & li:nth-child(1).animate-li {
+                transform: translateX(0);
+                opacity: 1;
+                transition-delay: 0.1s;
+
+            }
+
+            & li:nth-child(2).animate-li {
+                transform: translateX(0);
+                opacity: 1;
+                transition-delay: 0.2s;
+            }
+
+            & li:nth-child(3).animate-li {
+                transform: translateX(0);
+                opacity: 1;
+                transition-delay: 0.3s;
+            }
+
+            & li:nth-child(4).animate-li {
+                transform: translateX(0);
+                opacity: 1;
+                transition-delay: 0.4s;
+            }
+
+            & li:nth-child(5).animate-li {
+                transform: translateX(0);
+                opacity: 1;
+                transition-delay: 0.5s;
+            }
+
+            & a {
+                text-decoration: none;
+                color: white;
+                font-family: "HelveticaNowDisplay-Black";
+                font-size: 4.5rem;
+                line-height: 5.2rem;
+                opacity: $opacity;
+                position: relative;
+                @include transition(0.3s, ease);
+            }
+
+            & a::after,
+            & a::before {
+                content: "";
+                width: 0;
+                opacity: 0;
+                height: 10px;
+                background: $accent-color;
+                position: relative;
+                display: inline-block;
+                border-radius: 3px;
+                bottom: 25%;
+                margin: 0 10px;
+                @include transition(0.3s, cubic-bezier(0.91, 0, 0.55, 1.64));
+            }
+
+            & a:hover::after,
+            & a:hover::before {
+                width: 4.5vw;
+                opacity: 1;
+            }
+
+            & a:hover {
+                color: $accent-color;
+                opacity: 1 !important;
+            }
+
+
+
+            & li:first-of-type {
+                & a {
+                    opacity: 1;
+                }
+            }
+        }
+
+
+
+        & .cradit {
+            position: absolute;
+            bottom: 5%;
+            // opacity: $opacity + 0.4;
+            color: #fff !important;
+
+            & small {
+                font-size: 0.8rem;
+                letter-spacing: 2px;
+            }
+
+            & svg {
+                position: relative;
+                top: 3px;
+            }
+        }
+
+        &.open-overlay {
+             transform: translateY(0);
+        }
+    }
+
+
+    /*
+        *************************************************
+            ADDING MEDIA QUERY t0 1000px
+        *************************************************
+    */
+
+
+    @media screen and (max-width: 1000px) {
+        height: 8vh;
+    }
+
+    @media screen and (max-width: 1000px) {
+
+        & .logo div:first-child {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            bottom: 3px;
+        }
+
+        & .logo div:last-child {
+            & h1 {
+                font-size: 1.3rem;
+                // color: red;
+            }
+
+            & small {
+                font-size: 0.7rem;
+                position: relative;
+                bottom: 5px;
+            }
+        }
+
+        & .overlay-and-navitems .nav-items a {
+            font-size: 4.4rem;
+            line-height: 4.5rem;
+        }
+
+        & .overlay-and-navitems .nav-items li a:hover::after,
+        & .overlay-and-navitems .nav-items li a:hover::before {
+            width: 4rem;
+            // opacity: 1;
+        }
+    }
+
+    /*
+        *************************************************
+            END OF MEDIA QUERY t0 1000px
+        *************************************************
+    */
+
+
+    /*
+        *************************************************
+            ADDING MEDIA QUERY t0 680px
+        *************************************************
+    */
+
+
+
+    @media screen and (max-width: 680px) {
+
+        & .logo div:first-child {
+            position: relative;
+            bottom: 3px;
+        }
+
+        & .logo div:last-child {
+            & h1 {
+                font-size: 1.2rem !important;
+                // color: rgb(38, 0, 255);
+            }
+
+            & small {
+                font-size: 0.6rem !important;
+                position: relative;
+                bottom: 5px;
+            }
+        }
+
+        & .hamburger-menu {
+            // background: red;
+
+            & .menu-mes {
+                font-size: 0.8rem !important;
+            }
+
+            & .menu-btn .menu-btn__burger {
+                width: 25px;
+                height: 3px;
+            }
+
+
+            & .menu-btn .menu-btn__burger::before,
+            & .menu-btn .menu-btn__burger::after {
+                content: "";
+                position: absolute;
+                width: 35px;
+                height: 3px;
+            }
+
+            & .menu-btn .menu-btn__burger::before {
+                transform: translateY(-10px);
+            }
+
+            & .menu-btn .menu-btn__burger::after {
+                transform: translateY(10px);
+            }
+        }
+
+        & .overlay-and-navitems .nav-items a {
+            font-size: 3.6rem !important;
+            line-height: 4.3rem !important;
+        }
+
+        & .overlay-and-navitems .cradit small {
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+        }
+
+        & .overlay-and-navitems .cradit small svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        & .overlay-and-navitems .nav-items li a::after,
+        & .overlay-and-navitems .nav-items li a::before {
+            height: 8px;
+        }
+
+        & .overlay-and-navitems .nav-items li a:hover::after,
+        & .overlay-and-navitems .nav-items li a:hover::before {
+            width: 3.6rem;
+            // opacity: 1;
+        }
+    }
+
+    /*
+        *************************************************
+            END OF MEDIA QUERY t0 680px
+        *************************************************
+    */
+
+    /*
+        *************************************************
+            ADDING MEDIA QUERY t0 420px
+        *************************************************
+    */
+
+    @media screen and (max-width: 500px) {
+        height: 6vh;
+    }
+
+
+    @media screen and (max-width: 500px) {
+
+        & {
+            padding: 100px 30px 40px 30px;
+        }
+
+        & .logo {
+            @include flex(column, space-between, center);
+        }
+
+        & .logo div:first-child {
+            width: 35px;
+            height: 35px;
+            position: relative;
+            bottom: 2px;
+        }
+
+        & .logo div:last-child {
+            & h1 {
+                font-size: 1rem !important;
+                // color: red;
+            }
+
+            & small {
+                font-size: 0.5rem !important;
+                position: relative;
+                bottom: 10px;
+            }
+        }
+
+        & .hamburger-menu {
+            // background: red;
+
+            & .menu-mes {
+                font-size: 0.6rem !important;
+            }
+
+            & .menu-btn .menu-btn__burger {
+                width: 20px;
+                height: 3px;
+            }
+
+
+            & .menu-btn .menu-btn__burger::before,
+            & .menu-btn .menu-btn__burger::after {
+                content: "";
+                position: absolute;
+                width: 30px;
+                height: 3px;
+            }
+
+            & .menu-btn .menu-btn__burger::before {
+                transform: translateY(-8px);
+            }
+
+            & .menu-btn .menu-btn__burger::after {
+                transform: translateY(8px);
+            }
+        }
+
+        & .overlay-and-navitems .nav-items a {
+            font-size: 3.2rem !important;
+            line-height: 3.4rem !important;
+        }
+
+        & .overlay-and-navitems .cradit small {
+            font-size: 0.4rem;
+            letter-spacing: 2px;
+        }
+
+        & .overlay-and-navitems .cradit small svg {
+            width: 10px;
+            height: 10px;
+        }
+
+        & .overlay-and-navitems .nav-items li a::after,
+        & .overlay-and-navitems .nav-items li a::before {
+            height: 6px;
+        }
+
+        & .overlay-and-navitems .nav-items li a:hover::after,
+        & .overlay-and-navitems .nav-items li a:hover::before {
+            width: 2rem;
+        }
+    }
+
+
+
+    /*
+        *************************************************
+            END MEDIA QUERY t0 420px
+        *************************************************
+    */
+
+}
