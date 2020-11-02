@@ -63,6 +63,13 @@
         color: #ffffff;
         text-shadow: 0.8rem 1rem 2rem rgba(204, 204, 204, 0.1),
           -0.6rem -0.8rem 2rem rgba(185, 185, 185, 0.1);
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently
+                                        supported by Chrome, Edge, Opera and Firefox */
 
         @media screen and (max-width: 1200px) {
           display: none;
@@ -524,8 +531,8 @@
           position: absolute;
           top: 0;
           left: 0;
-          // box-shadow: inset 10em 0 10em rgb(255, 255, 255),
-          //   inset -10em 0 10em rgb(255, 255, 255);
+          box-shadow: inset 10em 0 10em rgb(255, 255, 255),
+            inset -10em 0 10em rgb(255, 255, 255);
         }
       }
 
@@ -604,13 +611,21 @@
 
       &::after {
         top: -80%;
-        left: -50%;
-        font-size: 0.3rem;
+        left: -1rem;
+        font-size: 0.6rem;
       }
 
       & span {
         width: 3px;
         height: 6px;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      &::after {
+        left: -1rem;
+
+        font-size: 0.6rem;
       }
     }
 
@@ -621,9 +636,9 @@
       border: 2px solid black;
 
       &::after {
-        top: -100%;
-        left: -80%;
-        font-size: 0.3rem;
+        top: -120%;
+        left: -1rem;
+        font-size: 0.5rem;
       }
 
       & span {
@@ -632,4 +647,42 @@
       }
     }
   }
+
+  /*
+        *************************************************
+            START MEDIA QUERY to width 320px and height 480px
+        *************************************************
+    */
+
+  @media (max-width: 330px) and (max-height: 590px) {
+    & .header-content {
+      & .left-box {
+        & .user-description {
+          & > p:nth-of-type(1) {
+            // font-size: 1rem;
+            font-size: 3vw;
+            line-height: 1vw;
+            margin-bottom: none !important;
+          }
+          & > p:nth-of-type(2) {
+            font-size: 2rem !important;
+            line-height: 2rem !important;
+          }
+
+          & .short-des {
+            width: 100%;
+            font-size: 0.8rem;
+            line-height: 1rem !important;
+            letter-spacing: 1px;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  /*
+        *************************************************
+             END MEDIA QUERY to width 320px and height 480px
+        *************************************************
+    */
 }
