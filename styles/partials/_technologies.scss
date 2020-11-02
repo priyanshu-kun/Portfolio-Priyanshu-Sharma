@@ -1,0 +1,83 @@
+.programming-Language {
+  width: 100vw;
+  max-width: 2200px;
+  height: 100vh;
+
+  //   min-width: 1;
+  margin: 0 auto;
+  background: linear-gradient(rgba(255, 196, 0, 0.1), rgba(255, 72, 0, 0.1));
+  @include flex(column, center, center);
+
+  .language-Box {
+    width: 78%;
+    // background: rgb(192, 192, 255);
+    margin-bottom: 20px;
+
+    & p {
+      opacity: $opacity;
+      letter-spacing: 2px;
+    }
+
+    & h1 {
+      text-transform: uppercase;
+      font-size: 2.5rem;
+      line-height: 3rem;
+      font-family: 'HelveticaNowDisplay-Black';
+    }
+  }
+
+  .languages-logos {
+    width: 80%;
+    height: 60vh;
+    background: #ffffff;
+    // padding: 20px;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 0 20px 8px rgba(25, 24, 54, 0.06);
+
+    & div {
+      //   background: rgb(255, 190, 190);
+      width: 80%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      padding: 20px;
+      //   @include flex(row, space-evenly, center);
+      //   flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200.33px, 1fr));
+      align-items: center;
+      justify-items: center;
+      //   grid-template-rows: repeat(auto-fit, minmax(56px, 1fr));
+    }
+
+    & img {
+      width: 50px;
+      //   background: rgb(255, 123, 255);
+      -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+      -khtml-user-select: none; /* Konqueror HTML */
+      -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+      user-select: none; /* Non-prefixed version, currently
+                                        supported by Chrome, Edge, Opera and Firefox */
+    }
+
+    &::after {
+      content: "SKILL'S";
+      position: absolute;
+      font-size: 5rem;
+      font-family: 'HelveticaNowDisplay-Black';
+      left: 3%;
+      -webkit-transform: rotate(-90deg);
+      -moz-transform: rotate(-9-0deg);
+      -ms-transform: rotate(-90deg);
+      -o-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+      letter-spacing: 3px;
+      top: 48%;
+      color: rgba(25, 24, 54, 0.1);
+    }
+  }
+}

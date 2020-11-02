@@ -155,6 +155,10 @@ video {
   /* 2 */
 }
 
+body {
+  overflow-x: hidden;
+}
+
 pre,
 code,
 kbd,
@@ -1050,6 +1054,16 @@ table {
              END MEDIA QUERY to width 320px and height 480px
         *************************************************
     */
+    /*
+        *************************************************
+             START MEDIA QUERY to 2000px
+        *************************************************
+    */
+    /*
+        *************************************************
+             END MEDIA QUERY to 2000px
+        *************************************************
+    */
   }
   .navbar .logo div:last-child {
     display: -webkit-box;
@@ -1882,6 +1896,101 @@ table {
     letter-spacing: 1px;
     text-align: center;
   }
+}
+
+.programming-Language {
+  width: 100vw;
+  max-width: 2200px;
+  height: 100vh;
+  margin: 0 auto;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 196, 0, 0.1)), to(rgba(255, 72, 0, 0.1)));
+  background: linear-gradient(rgba(255, 196, 0, 0.1), rgba(255, 72, 0, 0.1));
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.programming-Language .language-Box {
+  width: 78%;
+  margin-bottom: 20px;
+}
+
+.programming-Language .language-Box p {
+  opacity: 0.4;
+  letter-spacing: 2px;
+}
+
+.programming-Language .language-Box h1 {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  line-height: 3rem;
+  font-family: 'HelveticaNowDisplay-Black';
+}
+
+.programming-Language .languages-logos {
+  width: 80%;
+  height: 60vh;
+  background: #ffffff;
+  border-radius: 20px;
+  position: relative;
+  -webkit-box-shadow: 0 0 20px 8px rgba(25, 24, 54, 0.06);
+          box-shadow: 0 0 20px 8px rgba(25, 24, 54, 0.06);
+}
+
+.programming-Language .languages-logos div {
+  width: 80%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  padding: 20px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(200.33px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(200.33px, 1fr));
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+}
+
+.programming-Language .languages-logos img {
+  width: 50px;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                        supported by Chrome, Edge, Opera and Firefox */
+}
+
+.programming-Language .languages-logos::after {
+  content: "SKILL'S";
+  position: absolute;
+  font-size: 5rem;
+  font-family: 'HelveticaNowDisplay-Black';
+  left: 3%;
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  letter-spacing: 3px;
+  top: 48%;
+  color: rgba(25, 24, 54, 0.1);
 }
 
 /*
